@@ -43,6 +43,7 @@ sorted_letter_counts = sorted(
 )
 
 # Print the sorted counts for each letter
+print("Overall letter counts:")
 for letter, count in sorted_letter_counts:
     print(f"{letter}: {count}")
 
@@ -61,7 +62,27 @@ for name in names:
         first_letter_counts[first_letter] = 1
 
 # Print the counts for each first letter in descending order
+print("\nFirst letter counts:")
 for letter, count in sorted(
     first_letter_counts.items(), key=lambda item: item[1], reverse=True
 ):
     print(f"{letter}: {count}")
+
+# Lists to store results
+names_starting_with_y_or_u = []
+names_with_j_not_first = []
+
+# Loop through each name in the list
+for name in names:
+    # Check if the name starts with 'Y' or 'U'
+    if name[0].lower() in ["y", "u"]:
+        names_starting_with_y_or_u.append(name)
+
+    # Check if the name has 'J' that is not the first character
+    if "j" in name[1:].lower():  # Skip the first character when checking
+        names_with_j_not_first.append(name)
+
+# Print the results
+print()
+print("Names starting with Y or U:", names_starting_with_y_or_u)
+print("Names with J not first:", names_with_j_not_first)
