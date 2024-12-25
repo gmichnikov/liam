@@ -37,6 +37,11 @@ for name in names:
             else:
                 letter_counts[char] = 1
 
-# Print the counts for each letter
-for letter in sorted(letter_counts):
-    print(f"{letter}: {letter_counts[letter]}")
+# Sort the dictionary by values (counts) in descending order
+sorted_letter_counts = sorted(
+    letter_counts.items(), key=lambda item: item[1], reverse=True
+)
+
+# Print the sorted counts for each letter
+for letter, count in sorted_letter_counts:
+    print(f"{letter}: {count}")
