@@ -45,3 +45,23 @@ sorted_letter_counts = sorted(
 # Print the sorted counts for each letter
 for letter, count in sorted_letter_counts:
     print(f"{letter}: {count}")
+
+# Create an empty dictionary to store first-letter counts
+first_letter_counts = {}
+
+# Loop through each name in the list
+for name in names:
+    # Get the first letter of the name, converted to lowercase
+    first_letter = name[0].lower()
+
+    # Update the count for the first letter
+    if first_letter in first_letter_counts:
+        first_letter_counts[first_letter] += 1
+    else:
+        first_letter_counts[first_letter] = 1
+
+# Print the counts for each first letter in descending order
+for letter, count in sorted(
+    first_letter_counts.items(), key=lambda item: item[1], reverse=True
+):
+    print(f"{letter}: {count}")
