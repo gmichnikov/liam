@@ -20,3 +20,23 @@ with open(csv_file, "r") as file:
         names.append(row[0])  # Append the name (first column) to the list
 
 # print(names)
+
+# Create an empty dictionary to store letter counts
+letter_counts = {}
+
+# Loop through each name in the list
+for name in names:
+    # Loop through each character in the name
+    for char in name.lower():  # Convert to lowercase for consistency
+        # Check if the character is a letter
+        if "a" <= char <= "z":
+            # If the letter is already in the dictionary, increase its count
+            if char in letter_counts:
+                letter_counts[char] += 1
+            # If the letter is not in the dictionary, add it with a count of 1
+            else:
+                letter_counts[char] = 1
+
+# Print the counts for each letter
+for letter in sorted(letter_counts):
+    print(f"{letter}: {letter_counts[letter]}")
