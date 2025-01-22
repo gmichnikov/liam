@@ -32,4 +32,10 @@ plt.xlabel('Number')
 plt.ylabel('Count')
 plt.title('Number of Times Each Number Was Retired')
 plt.xticks(numbers)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# Increase the number of tick marks on the y-axis
+max_count = max(counts)
+plt.yticks(range(0, max_count + 1, 1))
+
 plt.show()
