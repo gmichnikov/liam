@@ -10,11 +10,11 @@ with open('numbers.csv', 'r') as file:
     
     # Count occurrences of each number
     for row in csv_reader:
-        number = row['number']
+        number = row['Number']
         number_counts[number] += 1
 
-# Convert to sorted list of tuples (number, count)
-retired_numbers_list = sorted(number_counts.items(), key=lambda x: int(x[0]))
+# Convert to sorted list of tuples (number, count) by count in descending order
+retired_numbers_list = sorted(number_counts.items(), key=lambda x: x[1], reverse=True)
 
 # Print results
 print("Number of times each number was retired:")
