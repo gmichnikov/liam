@@ -1,5 +1,6 @@
 import csv
 from collections import defaultdict
+import matplotlib.pyplot as plt
 
 # Dictionary to store number counts
 number_counts = defaultdict(int)
@@ -20,3 +21,15 @@ retired_numbers_list = sorted(number_counts.items(), key=lambda x: x[1], reverse
 print("Number of times each number was retired:")
 for number, count in retired_numbers_list:
     print(f"Number {number}: {count} time(s)")
+
+# Visualization
+numbers = [int(num) for num, count in retired_numbers_list]
+counts = [count for num, count in retired_numbers_list]
+
+plt.figure(figsize=(10, 6))
+plt.bar(numbers, counts, color='skyblue')
+plt.xlabel('Number')
+plt.ylabel('Count')
+plt.title('Number of Times Each Number Was Retired')
+plt.xticks(numbers)
+plt.show()
